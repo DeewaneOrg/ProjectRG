@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<!-- Data Sources -->
+	<data-sources></data-sources>
+	<!-- Form Beans -->
+	<form-beans>
+			
+		<!-- Form Bean For Login  -->
+<!-- 		<form-bean name="LoginFormBean" -->
+<!-- 			type="com.ibm.virtualization.recharge.beans.LoginFormBean" /> -->
+		<!-- Form Bean For Report Module  -->
+
+				<!-- Form Bean For Authenication Module  -->
+		<form-bean name="AuthenticationFormBean"
+			type="com.ibm.virtualization.recharge.beans.AuthenticationFormBean" />
+			
+			<form-bean name="PCCSummaryFormBean"
+			type="com.ibm.virtualization.recharge.beans.PCCSummaryFormBean" />
+		
+<!-- 		<form-bean name="ChangePasswordFormBean" -->
+		
+<!-- 		<form-bean name="ChangePasswordFormBean" -->
+<!-- 			type="com.ibm.virtualization.recharge.beans.ChangePasswordFormBean" /> -->
+		
+		<!--  added by Ganesh on 16Aug2012 for Category,PricePoint,Circle,PartnerName wise message functionality requirement-->	
+<!-- 		<form-bean name="MessageFormBean" -->
+<!-- 			type="com.ibm.virtualization.recharge.beans.MessageFormBean"/>	 -->
+	
+	</form-beans>
+	<!-- Global Exceptions -->
+	<global-exceptions>
+	
+	</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+		<forward name="login" path="./jsp/authentication/login.jsp" />
+		<forward name="autherization" path="./jsp/authentication/authorizationFail.jsp" />
+	</global-forwards>
+
+	<!-- Action Mappings -->
+	<action-mappings>
+
+		<!-- Action Mapping For System Configuration Management  -->
+		<action path="/PCCSummaryAction" name="PCCSummaryFormBean"
+			type="com.ibm.virtualization.recharge.actions.PCCSummaryAction"
+			parameter="methodName" validate="true" scope="request"
+			input="./jsp/report/getPCCSummaryReport.jsp">
+			<forward name="pcc_summary_report"
+				path="/jsp/report/getPCCSummaryReport.jsp" />
+			
+		</action>
+
+
+		<!-- Action Mapping For Login   -->
+		<action path="/LoginAction" forward="/jsp/report/getPCCSummaryReport.jsp" type="com.ibm.virtualization.recharge.actions.LoginAction" 
+			name="AuthenticationFormBean" scope="session" /> 
+<!-- 			 input="./jsp/authentication/login.jsp" -->
+<!-- 			validate="true"> -->
+<!-- 			<forward name="loginFailure" path="./jsp/authentication/login.jsp" /> -->
+<!-- 			<forward name="loginSuccess" redirect="true" path="/ChangePasswordAction.do?methodName=initNonContext" /> -->
+<!-- 		</action> -->
+
+	<!-- Action Mapping For Logout  -->
+		<action path="/LogoutAction"
+			type="com.ibm.virtualization.recharge.actions.LogoutAction">
+			<forward name="logoutSuccess" path="./jsp/authentication/logout.jsp"></forward>
+			<forward name="login" path="./jsp/authentication/login.jsp"></forward>
+		</action>
+
+		<!-- Action Mapping For InvalidSession  -->
+		<action path="/InvalidSession"
+			forward="./jsp/common/sessionErrorMessage.jsp">
+		</action>
+		
+		<!-- Action Mapping For Welcome  -->
+		<action path="/Welcome"
+			type="com.ibm.virtualization.recharge.actions.IndexAction">
+			<forward name="displayLogin" path="./jsp/authentication/login.jsp"></forward>
+			<forward name="invalidSession" path="/InvalidSession.do">
+			</forward>
+		</action>
+
+ 		<!-- Action Mapping For Change Password and M-Password  --> 
+<!-- 		<action path="/ChangePasswordAction" -->
+<!-- 			name="ChangePasswordFormBean" -->
+<!-- 			type="com.ibm.virtualization.recharge.actions.ChangePasswordAction" -->
+<!-- 			parameter="methodName" scope="request"> -->
+<!-- 			<forward name="initSuccess" path="./jsp/authentication/changePassword.jsp" /> -->
+<!-- 			<forward name="nonContextInitSuccess" -->
+<!-- 				path="./jsp/authentication/changePasswordNonContextUser.jsp" /> -->
+<!-- 			<forward name="updateSuccess" -->
+<!-- 				path="/ChangePasswordAction.do?methodName=init" /> -->
+<!-- 			<forward name="updateFailure" -->
+<!-- 				path="/ChangePasswordAction.do?methodName=init" /> -->
+<!-- 			<forward name="nonContextUpdateSuccess" -->
+<!-- 				path="./jsp/authentication/passwordExpired.jsp" /> -->
+<!-- 			<forward name="nonContextUpdateFailure" -->
+<!-- 				path="/ChangePasswordAction.do?methodName=initNonContext" /> -->
+<!-- 			<forward name="error" path="./jsp/common/error.jsp" /> -->
+<!-- 			<forward name="passwordExpired" -->
+<!-- 				path="/ChangePasswordAction.do?methodName=initNonContext" /> -->
+<!-- 			<forward name="initChangeMPasswordSuccess" -->
+<!-- 				path="./jsp/authentication/changeMPassword.jsp" /> -->
+<!-- 			<forward name="updateMPasswordSuccess" -->
+<!-- 				path="ChangePasswordAction.do?methodName=initChangeMPassword" /> -->
+<!-- 			<forward name="updateMPasswordFailure" -->
+<!-- 				path="ChangePasswordAction.do?methodName=initChangeMPassword" /> -->
+<!-- 			<forward name="initChangeMPasswordAsync" -->
+<!-- 				path="./jsp/authentication/changeMPasswordAsync.jsp"> -->
+<!-- 			</forward> -->
+<!-- 			<forward name="displayLogin" path="./jsp/authentication/login.jsp"></forward> -->
+			
+<!-- 		</action> -->
+		
+
+    	<!--  added by Ganesh on 16Aug2012 for Category,Partner,Circle,PricePoint Wise Message functionality Requiremnet-->
+		
+<!-- 		<action path="/MessageAction" attribute="MessageFormBean" name="MessageFormBean" -->
+<!-- 			type="com.ibm.virtualization.recharge.actions.MessageAction" -->
+<!-- 			parameter="methodName" scope="request"> -->
+			
+<!-- 			<forward name="create_success" -->
+<!-- 				path="/MessageAction.do?methodName=init" /> -->
+<!-- 			<forward name="success" -->
+<!-- 				path="./jsp/configuration/createMessage.jsp" /> -->
+<!-- 			<forward name="create_failure" -->
+<!-- 				path="/MessageAction.do?methodName=init" /> -->
+<!-- 			<forward name="view_success" -->
+<!-- 				path="./jsp/configuration/viewMessage.jsp" />	 -->
+<!-- 			<forward name="view_success2" -->
+<!-- 				path="/MessageAction.do?methodName=viewMessage" /> -->
+<!-- 			<forward name="edit_success"	 -->
+<!-- 				path="./jsp/configuration/editMessage.jsp" /> -->
+<!-- 			<forward name="edit_failure" -->
+<!-- 				path="./jsp/configuration/editMessage.jsp"/> -->
+<!-- 			<forward name="error" path="./jsp/common/error.jsp" /> -->
+			
+<!-- 			</action> -->
+				
+		
+			
+	</action-mappings>
+	<!-- Specialized RequestProcessor -->
+<!-- 	<controller -->
+<!-- 		processorClass="com.ibm.virtualization.recharge.actions.VirtualizationRequestProcessor" -->
+<!-- 		className="org.apache.struts.config.ControllerConfig" -->
+<!-- 		nocache="true"> -->
+<!-- 	</controller> -->
+
+	<!-- Message Resources -->
+<!-- 	<message-resources parameter="ApplicationResources" /> -->
+	<message-resources key="view"
+		parameter="com.ibm.virtualization.recharge.resources.VirtualizationResources" />
+	<message-resources key="error"
+		parameter="com.ibm.virtualization.recharge.resources.ErrorResources" />
+	<message-resources key="image"
+		parameter="com.ibm.virtualization.recharge.resources.ImageResources" />
+
+
+	<!-- For GSD Implementation -->
+<!-- 	<plug-in className="com.ibm.appsecure.plugin.QueryPlugin"></plug-in> -->
+
+
+</struts-config>
