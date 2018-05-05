@@ -242,6 +242,46 @@
 								
 							</logic:iterate>
 							
+							<TR align="center"
+									bgcolor="#fce8e6">
+									<TD colspan="2" class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10"><font style="bold">Total</font></SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">78025793.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">16100000.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">221713023.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">0.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">0.00</SPAN></TD>	
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">221713023.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">193709185.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">20126139.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">213834567.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">0.00%</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">0.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">0.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">601905.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">98900790.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">89779.00</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">-39%</SPAN></TD>
+									<TD class=" height19" align="right"><SPAN
+										class="mLeft5 mTop5 mBot5 black10">-18567778.00</SPAN></TD>
+								</TR>
+							
 							<TR>
 								<TD colspan="10"><FONT color="RED"><STRONG>
 								<html:errors bundle="view" property="message.sysconfig" /> </STRONG></FONT></TD>
